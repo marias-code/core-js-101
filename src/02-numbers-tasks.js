@@ -142,8 +142,8 @@ function getLastDigit(value) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return value.toString();
 }
 
 /**
@@ -159,8 +159,9 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelipidedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelipidedDiagonal(a, b, c) {
+  const d = Math.sqrt((a ** 2) + (b ** 2) + (c ** 2));
+  return d;
 }
 
 /**
@@ -201,8 +202,19 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if (n === 1) {
+    return false;
+  }
+  if (n === 2) {
+    return true;
+  }
+  for (let x = 2; x < n; x += 1) {
+    if (n % x === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -220,8 +232,12 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const convertedValue = Number(value);
+  if (Number.isNaN(convertedValue)) {
+    return def;
+  }
+  return convertedValue;
 }
 
 module.exports = {
